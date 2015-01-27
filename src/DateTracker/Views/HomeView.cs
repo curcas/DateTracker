@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DateTracker
 {
@@ -14,17 +15,12 @@ namespace DateTracker
 		public HomeView ()
 		{
 			List = new ListView ();
-			List.ItemsSource = new [] {
-				"item 1", 
-				"item 2"
-			};
+			List.ItemTemplate = new DataTemplate (typeof(UserCell));
 
 			DatePicker = new DatePicker ();
-			DatePicker.Date = DateTime.Now;
 			DatePicker.HorizontalOptions = new LayoutOptions (LayoutAlignment.Fill, true);
-			DatePicker.PropertyChanged += delegate(object sender, System.ComponentModel.PropertyChangedEventArgs e) {
-				//todo list change
-			};
+			DatePicker.PropertyChanged += onDateChange;
+			DatePicker.Date = DateTime.Now;
 
 			BackButton = new Button ();
 			BackButton.Text = "<";
@@ -51,6 +47,13 @@ namespace DateTracker
 					List
 				}
 			};
+		}
+
+		void onDateChange (object sender, PropertyChangedEventArgs e)
+		{
+			if (e.PropertyName == "Date") {
+				List.ItemsSource = new DateRepository ().GetByDate (DatePicker.Date);
+			}
 		}
 	}
 }

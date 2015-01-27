@@ -9,7 +9,7 @@ namespace DateTracker
 		public App ()
 		{
 			// The root page of your application
-			MainPage = new HomeView ();
+			MainPage = new MainView ();
 		}
 
 		protected override void OnStart ()
