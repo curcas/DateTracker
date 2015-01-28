@@ -15,6 +15,9 @@ namespace DateTracker
 		protected override void OnStart ()
 		{
 			// Handle when your app starts
+			DependencyService.Get<ISQLite> ().DropDatabase ();
+			var migrationHelper = new MigrationHelper ();
+			migrationHelper.Migrate ();
 		}
 
 		protected override void OnSleep ()

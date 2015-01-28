@@ -1,5 +1,6 @@
 ﻿using System;
 using Xamarin.Forms;
+using System.IO;
 
 [assembly: Xamarin.Forms.Dependency (typeof (DateTracker.Droid.SQLiteImplementation))]
 namespace DateTracker.Droid
@@ -14,6 +15,15 @@ namespace DateTracker.Droid
 			var conn = new SQLite.Net.SQLiteConnection(plat, path);
 
 			return conn;
+		}
+
+		public bool Exists(){
+			var path = DependencyService.Get<IDatabase> ().Path;
+			return File.Exists (path);
+		}
+
+		public void DropDatabase(){
+			File.Delete (DependencyService.Get<IDatabase> ().Path);
 		}
 	}
 }

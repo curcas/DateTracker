@@ -1,17 +1,9 @@
 ﻿<Properties StartupItem="Droid\DateTracker.Droid.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.cc" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DateTracker\Repositories\DateRepository.cs">
-    <Files>
-      <File FileName="DateTracker\Views\HomeView.cs" Line="30" Column="30" />
-      <File FileName="DateTracker\Layouting\UserCell.cs" Line="4" Column="4" />
-      <File FileName="DateTracker\Repositories\DateRepository.cs" Line="49" Column="49" />
-      <File FileName="DateTracker\DateTracker.cs" Line="1" Column="1" />
-      <File FileName="DateTracker\Views\MainView.cs" Line="1" Column="1" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="C:\Users\curdin\Documents\GitHub\DateTracker\src\DateTracker\Repositories\DateRepository.cs" line="24" column="5" />
+      <Breakpoint file="C:\Users\curdin\Documents\GitHub\DateTracker\src\DateTracker\Views\HomeView.cs" line="55" column="46" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

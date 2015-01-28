@@ -6,6 +6,8 @@ namespace DateTracker
 	public interface ISQLite
 	{
 		SQLiteConnection GetConnection();
+		bool Exists();
+		void DropDatabase();
 	}
 }
 
