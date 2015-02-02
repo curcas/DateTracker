@@ -1,10 +1,12 @@
 ﻿<Properties StartupItem="Droid\DateTracker.Droid.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.cc" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="DateTracker\Views\HomeView.cs">
+    <Files>
+      <File FileName="DateTracker\Views\HomeView.cs" Line="3" Column="3" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="C:\Users\curdin\Documents\GitHub\DateTracker\src\DateTracker\Views\HomeView.cs" line="55" column="46" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

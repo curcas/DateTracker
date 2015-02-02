@@ -17,5 +17,11 @@ namespace DateTracker
 			var con = Database.GetConnection ();
 			return con.Query<Arrangement> ("SELECT * FROM Arrangements WHERE Date = ?", new object[]{ date.ToString ("yyyy-MM-dd 00:00:00.000") });
 		}
+
+		public void Delete(int id)
+		{
+			var con = Database.GetConnection ();
+			con.Execute ("DELETE FROM Arrangements WHERE Id = ?", new object[]{ id });
+		}
 	}
 }
