@@ -42,6 +42,8 @@
     <Compile Include="App.cs" />
     <Compile Include="Entities\ListEntry.cs" />
     <Compile Include="Repositories\ListEntryRepository.cs" />
+    <Compile Include="Views\ListEntryView.cs" />
+    <Compile Include="ViewModels\ListEntryViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.3.1.6296\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.3.1.6296\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
@@ -68,5 +70,6 @@
     <Folder Include="Views\" />
     <Folder Include="Core\Interfaces\" />
     <Folder Include="Core\Interfaces\Database\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
 </Project>

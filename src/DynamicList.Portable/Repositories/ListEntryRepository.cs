@@ -20,6 +20,16 @@ namespace DynamicList.Portable.Repositories
 			return con.Query<ListEntry> ("SELECT * FROM ListEntries WHERE Date = ?", new object[]{ date.ToString ("yyyy-MM-dd 00:00:00.000") });
 		}
 
+		public void SaveOrUpdate(ListEntry listEntry){
+			var con = Database.GetConnection ();
+
+			if (listEntry.Id == 0) {
+				con.Execute ("INSERT INTO ListEntries (Title, Date) VALUES (?,?)", new object[]{ listEntry.Title, listEntry.Date.ToString ("yyyy-MM-dd 00:00:00.000") });
+			} else {
+				con.Execute ("UPDATE ListEntries SET Title = ?, Date = ? WHERE Id = ?", new object[]{ listEntry.Title, listEntry.Date.ToString ("yyyy-MM-dd 00:00:00.000"), listEntry.Id });
+			}
+		}
+
 		public void Delete(int id)
 		{
 			var con = Database.GetConnection ();

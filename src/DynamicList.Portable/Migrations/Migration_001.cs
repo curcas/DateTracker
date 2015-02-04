@@ -9,7 +9,7 @@ namespace DynamicList.Portable.Migrations
 			var steps = new List<string>();
 
 			steps.Add (@"CREATE TABLE ListEntries (Id INTEGER PRIMARY KEY AUTOINCREMENT,
-												Name TEXT NOT NULL,
+												Title TEXT NOT NULL,
 												Date TEXT NOT NULL)");
 			return steps;
 		}

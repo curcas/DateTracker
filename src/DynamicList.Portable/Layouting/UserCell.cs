@@ -34,7 +34,7 @@ namespace DynamicList.Portable.Layouting
 		public UserCell ()
 		{
 			var name = new Label ();
-			name.SetBinding<ListEntry> (Label.TextProperty, c => c.Name);
+			name.SetBinding<ListEntry> (Label.TextProperty, c => c.Title);
 			name.HorizontalOptions = LayoutOptions.StartAndExpand;
 			name.VerticalOptions = LayoutOptions.Center;
 

@@ -7,9 +7,9 @@ namespace DynamicList.Portable.Views
 	{
 		public MainView ()
 		{
-			Children.Add(new HomeView{
+			Children.Add(new NavigationPage(new HomeView{
 				Title = "Home"
-			});
+			}));
 			Children.Add(new HomeView{
 				Title = "Home2"
 			});

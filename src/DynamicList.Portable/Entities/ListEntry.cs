@@ -8,7 +8,14 @@ namespace DynamicList.Portable.Entities
 		[AutoIncrement]
 		public int Id {	get; set; }
 		public DateTime Date { get; set; }
-		public string Name { get; set; }
+		public string Title { get; set; }
+
+		public ListEntry(){
+		}
+
+		public ListEntry(DateTime date){
+			Date = date;
+		}
 	}
 }
 

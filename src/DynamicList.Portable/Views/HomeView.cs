@@ -33,6 +33,7 @@ namespace DynamicList.Portable.Views
 			List.ItemAppearing += async delegate(object sender, ItemVisibilityEventArgs e) {
 				var x = sender;
 			};
+			List.ItemSelected += onListItemSelected;
 
 			DatePicker = new DatePicker ();
 			DatePicker.HorizontalOptions = new LayoutOptions (LayoutAlignment.Fill, true);
@@ -51,6 +52,10 @@ namespace DynamicList.Portable.Views
 				DatePicker.Date = DatePicker.Date.AddDays(1);
 			};
 
+			var addButton = new Button ();
+			addButton.Text = "Add Entry";
+			addButton.Clicked += OnAddClicked;
+
 			Content = new StackLayout{
 				Children = {
 					new StackLayout{
@@ -61,9 +66,27 @@ namespace DynamicList.Portable.Views
 							ForwardButton
 						}
 					},
-					List
+					List,
+					addButton
 				}
 			};
+		}
+
+		void onListItemSelected (object sender, SelectedItemChangedEventArgs e)
+		{
+			var view = new ListEntryView (List.SelectedItem as ListEntry);
+			Navigation.PushAsync (view);
+		}
+
+		protected override void OnAppearing ()
+		{
+			List.ItemsSource = _ListEntryRepository.GetByDate (DatePicker.Date);
+		}
+
+		void OnAddClicked (object sender, EventArgs e)
+		{
+			var view = new ListEntryView (new ListEntry (DatePicker.Date));
+			Navigation.PushAsync (view);
 		}
 
 		void onDateChange (object sender, PropertyChangedEventArgs e)
