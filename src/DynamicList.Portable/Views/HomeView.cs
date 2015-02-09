@@ -27,12 +27,8 @@ namespace DynamicList.Portable.Views
 		{
 			_ListEntryRepository = new ListEntryRepository ();
 
-
 			List = new ListView ();
 			List.ItemTemplate = new DataTemplate (typeof(UserCell<ListEntry>));
-			List.ItemAppearing += async delegate(object sender, ItemVisibilityEventArgs e) {
-				var x = sender;
-			};
 			List.ItemSelected += onListItemSelected;
 
 			DatePicker = new DatePicker ();

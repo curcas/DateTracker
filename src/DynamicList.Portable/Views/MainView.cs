@@ -7,13 +7,12 @@ namespace DynamicList.Portable.Views
 	{
 		public MainView ()
 		{
-			Children.Add(new NavigationPage(new HomeView{
+			Children.Add (new HomeView {
 				Title = "Home"
-			}));
-			Children.Add(new HomeView{
-				Title = "Home2"
+			});
+			Children.Add (new PropertyListView {
+				Title = "Properties"
 			});
 		}
 	}
 }
-

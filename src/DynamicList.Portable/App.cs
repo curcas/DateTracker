@@ -11,7 +11,7 @@ namespace DynamicList.Portable
 		public App ()
 		{
 			// The root page of your application
-			MainPage = new NavigationPage (new HomeView ());
+			MainPage = new NavigationPage(new MainView ());
 		}
 
 		protected override void OnStart ()

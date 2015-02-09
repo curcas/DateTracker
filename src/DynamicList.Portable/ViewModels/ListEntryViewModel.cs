@@ -1,5 +1,6 @@
 ﻿using System;
 using DynamicList.Portable.Entities;
+using System.Collections.Generic;
 
 namespace DynamicList.Portable.ViewModels
 {
@@ -20,9 +21,7 @@ namespace DynamicList.Portable.ViewModels
 			set;
 		}
 
-		public ListEntryViewModel ()
-		{
-		}
+		public IList<Property> Properties{ get; set;}
 
 		public ListEntry GetEntity(){
 			return new ListEntry {

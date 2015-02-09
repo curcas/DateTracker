@@ -3,15 +3,22 @@ using DynamicList.Portable.ViewModels;
 using DynamicList.Portable.Entities;
 using Xamarin.Forms;
 using DynamicList.Portable.Repositories;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DynamicList.Portable.Views
 {
 	public class ListEntryView : ContentPage
 	{
+		private readonly PropertyRepository _PropertyRepository;
 		private ListEntryViewModel _listEntryViewModel;
+
+		private StackLayout Layout;
 
 		public ListEntryView (ListEntry listEntry)
 		{
+			_PropertyRepository = new PropertyRepository ();
+
 			Model.Date = listEntry.Date;
 			Model.Title = listEntry.Title;
 			Model.Id = listEntry.Id;
@@ -34,17 +41,40 @@ namespace DynamicList.Portable.Views
 			};
 			saveButton.Clicked += OnSave;
 
-			Content = new StackLayout {
+			var list = new List<View> ();
+			list.Add (titleLabel);
+			list.Add (title);
+
+
+
+			Layout = new StackLayout {
 				Spacing = 20,
 				Padding = 50,
 				VerticalOptions = LayoutOptions.Center,
 				Children = {
 					titleLabel,
-					title,
-					saveButton
+					title
 				}
 			};
 
+			GetControlls ();
+			Layout.Children.Add (saveButton);
+
+			Content = Layout;
+		}
+
+		private void GetControlls(){
+			foreach (var property in _PropertyRepository.GetAll()) {
+				var label = new Label {
+					Text = property.Name
+				};
+
+				var input = new Entry ();
+				//input.SetBinding (Entry.TextProperty, Model.Properties.Where(p => p.Name == property.Name));
+
+				Layout.Children.Add (label);
+				Layout.Children.Add (input);
+			}
 		}
 
 		void OnSave (object sender, EventArgs e)

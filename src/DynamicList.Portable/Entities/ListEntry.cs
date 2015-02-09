@@ -1,5 +1,6 @@
 ﻿using System;
 using SQLite.Net.Attributes;
+using System.Collections.Generic;
 
 namespace DynamicList.Portable.Entities
 {
@@ -9,6 +10,7 @@ namespace DynamicList.Portable.Entities
 		public int Id {	get; set; }
 		public DateTime Date { get; set; }
 		public string Title { get; set; }
+		public IList<Property> Properties {	get; set; }
 
 		public ListEntry(){
 		}
